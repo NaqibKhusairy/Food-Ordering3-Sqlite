@@ -8,14 +8,14 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button order, viewhistory;
+    Button order, history;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         order = findViewById(R.id.btnorder);
-        viewhistory = findViewById(R.id.btnhistory);
+        history = findViewById(R.id.btnhistory);
 
         order.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        viewhistory.setOnClickListener(new View.OnClickListener() {
+        history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent x = new Intent(getApplicationContext(),HistoryActivity.class);
