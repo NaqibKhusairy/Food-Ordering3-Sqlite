@@ -73,7 +73,16 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
             etqdrinks.requestFocus();
             return false;
         }
-        return false;
+        qburger = Integer.parseInt(burger);
+        qfries = Integer.parseInt(fries);
+        qchicken = Integer.parseInt(chicken);
+        qhotdog = Integer.parseInt(hotdog);
+        qdrinks = Integer.parseInt(cola);
+
+        // Calculate total order
+        totalorder = qburger * 8.90 + qfries * 4.90 + qchicken * 5.90 + qhotdog * 11.90 + qdrinks * 4.90;
+
+        return true;
     }
 
     private void addOrder() {
@@ -117,8 +126,9 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
         qdrinks = Integer.parseInt(etqdrinks.getText().toString().trim());
         totalorder = qburger + qfries + qchicken + qhotdog + qdrinks;
 
-        Toast.makeText(getApplicationContext(),"Your Order is\n1. Burger - "+qburger+
-                "\n2. Fries -"+qfries+
+        Toast.makeText(getApplicationContext(),
+                "Your Order is\n1. Burger - "+qburger+
+                        "\n2. Fries -"+qfries+
                         "\n3. Chicken Wing -"+qchicken+
                         "\n4. Hot Dog -"+qhotdog+
                         "\n5. Drinks -"+qdrinks+
