@@ -1,4 +1,4 @@
-package com.naqib.food_ordering3_sqlite;;
+package com.naqib.food_ordering3_sqlite;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;

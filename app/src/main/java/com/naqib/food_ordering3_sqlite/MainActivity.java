@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,20 +16,14 @@ public class MainActivity extends AppCompatActivity {
         order = findViewById(R.id.btnorder);
         history = findViewById(R.id.btnhistory);
 
-        order.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent x = new Intent(getApplicationContext(),OrderActivity.class);
-                startActivity(x);
-            }
+        order.setOnClickListener(view -> {
+            Intent x = new Intent(getApplicationContext(),OrderActivity.class);
+            startActivity(x);
         });
 
-        history.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent x = new Intent(getApplicationContext(),HistoryActivity.class);
-                startActivity(x);
-            }
+        history.setOnClickListener(view -> {
+            Intent x = new Intent(getApplicationContext(),HistoryActivity.class);
+            startActivity(x);
         });
     }
 }

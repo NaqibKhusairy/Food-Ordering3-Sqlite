@@ -15,9 +15,7 @@ public class Order {
         this.total = total;
         this.joiningDate = joiningDate;
     }
-    public int getId() {
-        return id;
-    }
+
     public int getBurger() {
         return burger;
     }

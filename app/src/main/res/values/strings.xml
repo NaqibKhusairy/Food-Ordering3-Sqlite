@@ -1,3 +1,26 @@
 <resources>
-    <string name="app_name">Food-Ordering3-Sqlite</string>
+    <string name="app_name">Fast Food Ordering</string>
+    <string name="dateTime">2017-09-30 10:00:00</string>
+    <string name="BurgerOrder">Order- Burger</string>
+    <string name="FriesOrder">Order- Fries</string>
+    <string name="ChickenOrder">Order- Chicken</string>
+    <string name="HotDogOrder">Order- HotDog</string>
+    <string name="ColaOrder">Order- Cola</string>
+    <string name="TotalOrder">TOTAL ORDER</string>
+    <string name="todo">TODO</string>
+    <string name="FastFood">FAST FOOD</string>
+    <string name="order">ORDER</string>
+    <string name="History">VIEW HISTORY</string>
+    <string name="burger">BURGER</string>
+    <string name="HargaBurger">RM 8.90</string>
+    <string name="Qtt">Quantity</string>
+    <string name="Fries">FRENCH FRIES</string>
+    <string name="HargaFries">RM 4.90</string>
+    <string name="chikenWing">CHICKEN WING</string>
+    <string name="HargaCwing">RM 5.90</string>
+    <string name="HotDog">SPECIAL HOT DOG</string>
+    <string name="HargaHotDog">RM 11.90</string>
+    <string name="coke">COCA COLA</string>
+    <string name="HargaCoke">RM 4.90</string>
+    <string name="HeaderOrder">MAKE YOUR ORDER</string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -7,54 +8,56 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
         <LinearLayout
             android:layout_width="391dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
             <TextView
                 android:id="@+id/textViewJoiningDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
-                android:text="2017-09-30 10:00:00"
+                android:text="@string/dateTime"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
             <TextView
                 android:id="@+id/textViewBur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Order- Burger"
+                android:text="@string/BurgerOrder"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
             <TextView
                 android:id="@+id/textViewFries"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Order- Fries"
+                android:text="@string/FriesOrder"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
             <TextView
                 android:id="@+id/textViewChicken"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Order- Chicken"
+                android:text="@string/ChickenOrder"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
             <TextView
                 android:id="@+id/textViewHotDog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Order- HotDog"
+                android:text="@string/HotDogOrder"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
             <TextView
                 android:id="@+id/textViewCola"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Order- Cola"
+                android:text="@string/ColaOrder"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
             <TextView
                 android:id="@+id/textViewTotal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TOTAL ORDER"
+                android:text="@string/TotalOrder"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textStyle="bold" />
         </LinearLayout>

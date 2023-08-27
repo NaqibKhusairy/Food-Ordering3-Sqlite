@@ -2,6 +2,7 @@ package com.naqib.food_ordering3_sqlite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
@@ -14,9 +15,10 @@ import java.util.Calendar;
 public class OrderActivity extends AppCompatActivity implements View.OnClickListener {
     EditText etqburger, etqfries, etqchicken, etqdrinks, etqhotdog;
     Button btnorder;
-    int qburger, qfries, qchicken, qdrinks, qhotdog;
+    int qburger, qfries, qchicken, qdrinks, qhotdog, x = 0;
     double totalorder;
     SQLiteDatabase mDatabase;
+    String ToasT="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
         btnorder = findViewById(R.id.btnorder2);
         btnorder.setOnClickListener(this);
 
-        // Open the SQLite database or create if not exists
+
         mDatabase = openOrCreateDatabase("FoodOrders", MODE_PRIVATE, null);
         createOrderTable();
     }
@@ -50,62 +52,80 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
         );
     }
 
+    @SuppressLint("DefaultLocale")
     private boolean inputsAreCorrect(String burger, String fries, String chicken,
                                      String hotdog, String cola) {
+        ToasT += "Your Order is : ";
         if (burger.isEmpty()) {
-            etqburger.setError("Please enter quantity");
-            etqburger.requestFocus();
-            return false;
-        } else if (fries.isEmpty()) {
-            etqfries.setError("Please enter quantity");
-            etqfries.requestFocus();
-            return false;
-        } else if (chicken.isEmpty()) {
-            etqchicken.setError("Please enter quantity");
-            etqchicken.requestFocus();
-            return false;
-        } else if (hotdog.isEmpty()) {
-            etqhotdog.setError("Please enter quantity");
-            etqhotdog.requestFocus();
-            return false;
-        } else if (cola.isEmpty()) {
-            etqdrinks.setError("Please enter quantity");
-            etqdrinks.requestFocus();
+            burger = "0";
+        }
+        else {
+            x += 1;
+            ToasT += "\n"+x+". Burger - "+burger;
+        }
+        if (fries.isEmpty()) {
+            fries = "0";
+        }
+        else {
+            x += 1;
+            ToasT += ", "+x+". Fries - "+fries;
+        }
+        if (chicken.isEmpty()) {
+            chicken = "0";
+        }
+        else {
+            x += 1;
+            ToasT += ", "+x+". Chicken Wing - "+chicken;
+        }
+        if (hotdog.isEmpty()) {
+            hotdog = "0";
+        }
+        else {
+            x += 1;
+            ToasT += ", "+x+". Hot Dog - "+hotdog;
+        }
+        if (cola.isEmpty()) {
+            cola = "0";
+        }
+        else {
+            x += 1;
+            ToasT += ", "+x+". Drinks - "+cola;
+        }
+        try {
+            qburger = Integer.parseInt(burger);
+            qfries = Integer.parseInt(fries);
+            qchicken = Integer.parseInt(chicken);
+            qhotdog = Integer.parseInt(hotdog);
+            qdrinks = Integer.parseInt(cola);
+
+            totalorder = qburger * 8.90 + qfries * 4.90 + qchicken * 5.90 + qhotdog * 11.90 + qdrinks * 4.90;
+
+            if (totalorder != 0){
+                ToasT += ", Your Total Order - RM " + String.format("%.2f", totalorder);
+            }
+            return true;
+        } catch (NumberFormatException e) {
             return false;
         }
-        qburger = Integer.parseInt(burger);
-        qfries = Integer.parseInt(fries);
-        qchicken = Integer.parseInt(chicken);
-        qhotdog = Integer.parseInt(hotdog);
-        qdrinks = Integer.parseInt(cola);
-
-        // Calculate total order
-        totalorder = qburger * 8.90 + qfries * 4.90 + qchicken * 5.90 + qhotdog * 11.90 + qdrinks * 4.90;
-
-        return true;
     }
 
+    @SuppressLint({"SimpleDateFormat","DefaultLocale"})
     private void addOrder() {
         String burger = etqburger.getText().toString().trim();
         String fries = etqfries.getText().toString().trim();
         String chicken = etqchicken.getText().toString().trim();
         String hotdog = etqhotdog.getText().toString().trim();
         String cola = etqdrinks.getText().toString().trim();
-        //double total=totalorder;
-        String total=String.valueOf(totalorder);
+        String total=String.format("%.2f", totalorder);
 
-        //getting the current time for joining date
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy hh:mm:ss");
+        Calendar cal = Calendar.getInstance();SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
         String joiningDate = sdf.format(cal.getTime());
-        //validating the input
+
 
         if (inputsAreCorrect(burger, fries, chicken, hotdog, cola)) {
             String insertSQL = "INSERT INTO orders (burger, fries, chicken, hotdog, drinks, total, timestamp) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?)";
-            //using the same method execsql for inserting values
-            //this time it has two parameters
-            //first is the sql string and second is the parameters that is to be binded with the query
+
             mDatabase.execSQL(insertSQL, new
                     String[]{burger, fries, chicken, hotdog, cola, total, joiningDate});
             Toast.makeText(this, "Order Added Successfully",
@@ -115,25 +135,35 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
             etqfries.setText("");
             etqdrinks.setText("");
             etqhotdog.setText("");
+            ToasT = "";
+            x = 0;
         }
     }
     @Override
     public void onClick(View view) {
-        qburger = Integer.parseInt(etqburger.getText().toString().trim());
-        qfries = Integer.parseInt(etqfries.getText().toString().trim());
-        qchicken = Integer.parseInt(etqchicken.getText().toString().trim());
-        qhotdog = Integer.parseInt(etqhotdog.getText().toString().trim());
-        qdrinks = Integer.parseInt(etqdrinks.getText().toString().trim());
-        totalorder = qburger + qfries + qchicken + qhotdog + qdrinks;
+        String burger = etqburger.getText().toString().trim();
+        String fries = etqfries.getText().toString().trim();
+        String chicken = etqchicken.getText().toString().trim();
+        String hotdog = etqhotdog.getText().toString().trim();
+        String cola = etqdrinks.getText().toString().trim();
 
-        Toast.makeText(getApplicationContext(),
-                "Your Order is\n1. Burger - "+qburger+
-                        "\n2. Fries -"+qfries+
-                        "\n3. Chicken Wing -"+qchicken+
-                        "\n4. Hot Dog -"+qhotdog+
-                        "\n5. Drinks -"+qdrinks+
-                        "\nYour Total Order -"+ totalorder
-                ,Toast.LENGTH_LONG).show();
-        addOrder();
+        try {
+            inputsAreCorrect(burger, fries, chicken, hotdog, cola);
+
+            if(totalorder!=0.0){
+                Toast.makeText(getApplicationContext(), ToasT,Toast.LENGTH_SHORT).show();
+                addOrder();
+            }
+            else{
+                Toast.makeText(getApplicationContext(),
+                        "Please add items to your order.",
+                        Toast.LENGTH_SHORT).show();
+
+            }
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(),
+                    "Invalid input. Please enter valid quantities.",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 }

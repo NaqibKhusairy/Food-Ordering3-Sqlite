@@ -16,7 +16,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/second" />
+        app:srcCompat="@drawable/second"
+        android:contentDescription="@string/todo" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -40,7 +41,7 @@
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="BURGER"
+                android:text="@string/burger"
                 android:textColor="#8F2B24"
                 android:textSize="24sp" />
             <TextView
@@ -48,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#756006"
-                android:text="RM8.90"
+                android:text="@string/HargaBurger"
                 android:textSize="18sp" />
 
             <EditText
@@ -56,16 +57,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
                 android:ems="10"
-                android:hint="Quantity"
+                android:hint="@string/Qtt"
                 android:textColor="#756006"
-                android:inputType="number" />
+                android:inputType="number"
+                android:autofillHints="@string/Qtt" />
         </LinearLayout>
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="10dp"
             android:layout_height="80dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/burger" />
+            app:srcCompat="@drawable/burger"
+            android:contentDescription="@string/todo" />
     </LinearLayout>
 
     <LinearLayout
@@ -91,7 +94,7 @@
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="FRENCH FRIES"
+                android:text="@string/Fries"
                 android:textColor="#8F2B24"
                 android:textSize="24sp" />
 
@@ -99,7 +102,7 @@
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RM4.90"
+                android:text="@string/HargaFries"
                 android:textColor="#756006"
                 android:textSize="18sp" />
 
@@ -108,8 +111,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
                 android:ems="10"
-                android:hint="Quantity"
-                android:inputType="number" />
+                android:hint="@string/Qtt"
+                android:inputType="number"
+                android:autofillHints="@string/Qtt" />
         </LinearLayout>
 
         <ImageView
@@ -117,7 +121,8 @@
             android:layout_width="10dp"
             android:layout_height="80dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/fries" />
+            app:srcCompat="@drawable/fries"
+            android:contentDescription="@string/todo" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="360dp"
@@ -140,7 +145,7 @@
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CHICKEN WING"
+                android:text="@string/chikenWing"
                 android:textColor="#8F2B24"
                 android:textSize="24sp" />
             <TextView
@@ -148,22 +153,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#756006"
-                android:text="5.90"
+                android:text="@string/HargaCwing"
                 android:textSize="18sp" />
             <EditText
                 android:id="@+id/etqchicken"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
                 android:ems="10"
-                android:hint="Quantity"
-                android:inputType="number" />
+                android:hint="@string/Qtt"
+                android:inputType="number"
+                android:autofillHints="@string/Qtt" />
         </LinearLayout>
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="10dp"
             android:layout_height="80dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/cwing" />
+            app:srcCompat="@drawable/cwing"
+            android:contentDescription="@string/todo" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="360dp"
@@ -186,7 +193,7 @@
                 android:id="@+id/textView13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SPECIAL HOT DOG"
+                android:text="@string/HotDog"
                 android:textColor="#8F2B24"
                 android:textSize="24sp" />
             <TextView
@@ -194,22 +201,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#756006"
-                android:text="11.90"
+                android:text="@string/HargaHotDog"
                 android:textSize="18sp" />
             <EditText
                 android:id="@+id/etqhotdog"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
                 android:ems="10"
-                android:hint="Quantity"
-                android:inputType="number" />
+                android:hint="@string/Qtt"
+                android:inputType="number"
+                android:autofillHints="@string/Qtt" />
         </LinearLayout>
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="10dp"
             android:layout_height="80dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/hotdog" />
+            app:srcCompat="@drawable/hotdog"
+            android:contentDescription="@string/todo" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="360dp"
@@ -233,7 +242,7 @@
                 android:id="@+id/textView16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="COCA COLA"
+                android:text="@string/coke"
                 android:textColor="#8F2B24"
                 android:textSize="24sp" />
             <TextView
@@ -241,28 +250,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#756006"
-                android:text="4.90"
+                android:text="@string/HargaCoke"
                 android:textSize="18sp" />
             <EditText
                 android:id="@+id/etqdrinks"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
                 android:ems="10"
-                android:hint="Quantity"
-                android:inputType="number" />
+                android:hint="@string/Qtt"
+                android:inputType="number"
+                android:autofillHints="@string/Qtt" />
         </LinearLayout>
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/drinks" />
+            app:srcCompat="@drawable/drinks"
+            android:contentDescription="@string/todo" />
     </LinearLayout>
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MAKE YOUR ORDER"
+        android:text="@string/HeaderOrder"
         android:textColor="#F8F0F0"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -275,7 +286,7 @@
         android:layout_width="146dp"
         android:layout_height="65dp"
         android:backgroundTint="@color/maroon"
-        android:text="ORDER"
+        android:text="@string/order"
         android:textSize="18sp"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"

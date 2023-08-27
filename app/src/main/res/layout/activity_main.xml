@@ -16,7 +16,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.104"
-        app:srcCompat="@drawable/delicious" />
+        app:srcCompat="@drawable/delicious"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/textView"
@@ -24,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="cursive"
-        android:text="FAST FOOD"
+        android:text="@string/FastFood"
         android:textColor="#ffffff"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +38,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="134dp"
         android:backgroundTint="@color/kuning"
-        android:text="ORDER"
+        android:text="@string/order"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +52,7 @@
         android:layout_width="240dp"
         android:layout_height="40dp"
         android:backgroundTint="@color/kuning"
-        android:text="VIEW HISTORY"
+        android:text="@string/History"
         android:textColor="#020101"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
